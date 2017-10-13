@@ -92,7 +92,7 @@ class SelectorBIC(ModelSelector):
 		while n_components != self.max_n_components:
 			try:
 				model = self.base_model(n_components)
-				n_params = n_components * (n_components - 1) + 2 * self.X.shape[1] * n_components
+				n_params = n_components **2 + 2 * self.X.shape[1] * n_components - 1
 				logL = model.score(self.X, self.lengths)
 				logN = np.log(self.X.shape[0])
 				score = -2 * logL + n_params * logN
