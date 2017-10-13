@@ -165,7 +165,7 @@ class SelectorCV(ModelSelector):
 		model = self.base_model(n_components)
 
 		for train, test in splitter.split(self.sequences):
-			self.X, self.lengths = combine_sequences(test, self.sequences)
+			self.X, self.lengths = combine_sequences(train, self.sequences)
 
 			X_test, leng_test = combine_sequences(test, self.sequences)			
 
